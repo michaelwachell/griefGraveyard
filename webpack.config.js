@@ -17,6 +17,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    // alias: {
+    //   react: 'preact'
+    // } 
   },
   output: {
     path: path.resolve(`${__dirname}/dist`),
