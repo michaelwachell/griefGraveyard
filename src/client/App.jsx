@@ -8,6 +8,7 @@ import 'aframe-star-system-component';
 
 
 
+
 class App extends React.Component {
 
 constructor(props) {
@@ -52,16 +53,17 @@ spin(e)
     render() {
         return (
             <>We Have React
-        <Scene id="space" stars="iterations: 100" >
-        <Entity geometry={{primitive: 'sphere'}} position="0 8 -5" radius="100" material={{color: 'white'}} class="shape" >
+        <Scene id="space" stars="iterations: 100" planets="iterations: 3">
+        <Entity geometry={{primitive: 'sphere'}}  radius="100" position="10 10 10" material={{color: 'red'}} class="shape" >
         </Entity>
-        <Entity geometry={{primitive: 'sphere'}} position="0 4 -5" radius="100" material={{color: 'white'}} class="shape" >
+        <Entity geometry={{primitive: 'sphere'}} position="0 4 -5" collider-check radius="100" material={{color: 'yellow'}} class="shape" >
 </Entity>
             <a-sky color="black"></a-sky>
             <a-entity star-system></a-entity>
 
-            <a-camera fly look-controls wasd-controls="fly: true; enable: true;">
-            <a-cursor>
+            <a-camera  fly look-controls wasd-controls="fly: true; enable: true;">
+  <a-entity raycaster="showLine: true; objects: .collides" position="0 -0.9 0" rotation="0 0 0"></a-entity>
+                   <a-cursor  >
                 </a-cursor>
             </a-camera>
           </Scene>
