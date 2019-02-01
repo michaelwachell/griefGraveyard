@@ -7,11 +7,11 @@ import {Entity, Scene} from 'aframe-react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import SpaceJam from './scenes/spaceJam.jsx';
 import Graveyard from './scenes/graveyard.jsx';
-import Menu from './Menu';
+
 
 const Space = () => <h2>Space Floaty - Enter VR </h2>;
 
-class App extends React.Component {
+class Menu extends React.Component {
 
 constructor(props) {
     super(props)
@@ -27,19 +27,24 @@ constructor(props) {
     render() {
         return (
         
-            <Router>
-                <>      
-                <Route path="/" component={Menu}/>
-            <Route path="/space" component={SpaceJam}/>
-            <Route path="/graveyard" component={Graveyard}/>
-            </>
-            </Router>
+     
+                <>
+                <Space/>
+            <div>
+            <Link to="/space"> Space Floater </Link>
+            </div>
+            <div>
+            <Link to="/graveyard">Grief Leaver</Link>
+            </div>
+
+                    </>
+         
 
         )
     };
 };
 
 
-export default App
+export default Menu
 
 
