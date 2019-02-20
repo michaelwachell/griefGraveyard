@@ -1,16 +1,18 @@
 import 'aframe';
+import Attr from '../utilities/attributes';
+const { setAttributes } = Attr;
 
-function setAttributes(el, attrs) {
-  for (const key in attrs) {
-    el.setAttribute(key, attrs[key]);
-  }
-}
-
-
-AFRAME.registerComponent('on-rails', {
+AFRAME.registerComponent('make-grave', {
 
   init: () => {
+    this.el.addEventListener('click', (e) => {
+      console.log('you clicked', e);
+      const grave = document.createElement('a-entity');
+      
 
+
+
+    })
   },
 
   tick: () => {
@@ -29,8 +31,6 @@ AFRAME.registerComponent('collider-check', {
   dependencies: ['raycaster'],
 
   init() {
-
-
     this.el.addEventListener('raycaster-intersected', (e) => {
       console.log('Player hit something!', e);
       const animation = document.createElement('a-animation');
