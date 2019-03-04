@@ -2,11 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "aframe";
 import "aframe-extras";
+import "aframe-particle-system-component";
 import { Entity, Scene } from "aframe-react";
 import "aframe-environment-component";
+import 'aframe-glow';
 import Attr from "../utilities/attributes";
 const { setAttributes } = Attr;
 import Grave from '../components/entities/Grave';
+import sky from '../../../dist/assets/skys/slake.jpg';
+import CrackedEarth from '../../../dist/assets/skys/cracked_earth.jpg';
 
 export default class Graveyard extends React.Component {
   constructor(props) {
@@ -110,15 +114,31 @@ export default class Graveyard extends React.Component {
 
   render() {
     return (
-      <Scene light={{ defaultLightsEnabled: true }} id="myScene">
+      <Scene id="myScene">
+
+      <a-assets>
+        <img id="sky" rotation="0 -180 0" src={sky}/>
+        <img id="earth" src={CrackedEarth}/>
+        <a-mixin id="light"
+                 geometry="primitive: sphere; radius: .5"
+                 material="color: #2F0909; emissive: #2F090s "
+                 light="color: #2F0909; distance: 2; intensity: 5; type: point"></a-mixin>
+      </a-assets>
+
+      <a-entity environment="preset: starry; gridColor: #2F0909; lightPosition: '0 0 0';"></a-entity>
+      <a-sphere glow="enabled:true; scale:1.5; color: #2F0909; c: 1d; p:1; " position="2 8 5" opacity=".1" radius=".5"></a-sphere>
+      
+
+
       {this.state.graves.map((g, i)=> {
          const {width, height,position, x, y ,z,color, klass } = g;
          console.log (width, height,position, x, y ,z,color, klass, 'GGGGGGG')
         return (<Grave width={width} height={height} position={position} x={x} y={y} z={z} color={color} klass={klass} key={i} />)
       })}
+                
 
 <a-entity text="value: Hello World;"></a-entity>
-        <Entity
+        {/* <Entity
           geometry={{ primitive: "sphere" }}
           radius="100"
           position="10 10 10"
@@ -132,21 +152,23 @@ export default class Graveyard extends React.Component {
           radius="100"
           material={{ color: "yellow" }}
           class="shape"
-        />
+        /> */}
         <a-plane
           position="0 0 -4"
           rotation="-90 0 0"
           width="150"
           height="150"
-          color="#999999"
+          src="#earth"
+          opacity="0"
+          scale="2 2 2"
         />
-        <a-box
+        {/* <a-box
           position="0 2 -10"
           width="5"
           height="7"
           color="black"
           onClick={() => this.makeGrave()}
-        />
+        /> */}
         <a-camera fly look-controls wasd-controls="fly: false; enable: true;">
           <a-entity
             raycaster="showLine: true; objects: collides"

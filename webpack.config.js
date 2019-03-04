@@ -6,13 +6,17 @@ const SRC_DIR = path.resolve(`${__dirname}/src/client`);
 module.exports = {
   entry: ['babel-polyfill', `${SRC_DIR}/index.jsx`],
   module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-
+    rules: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: ['babel-loader'],
+    },
+    {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: [
+        'file-loader'
+      ]
+    }
     ],
   },
   resolve: {
