@@ -123,10 +123,11 @@ export default class Graveyard extends React.Component {
                  geometry="primitive: sphere; radius: .5"
                  material="color: #2F0909; emissive: #2F090s "
                  light="color: #2F0909; distance: 2; intensity: 5; type: point"></a-mixin>
+       
       </a-assets>
 
       <a-entity environment="preset: starry; gridColor: #2F0909; lightPosition: '0 0 0';"></a-entity>
-      <a-sphere glow="enabled:true; scale:1.5; color: #2F0909; c: 1d; p:1; " position="2 8 5" opacity=".1" radius=".5"></a-sphere>
+      <a-sphere glow="enabled:true; scale:1.5; color: #2F0909; c: 1d; p:1; " position="2 8 5" opacity=".1" radius=".45"></a-sphere>
       
 
 
@@ -169,7 +170,7 @@ export default class Graveyard extends React.Component {
           color="black"
           onClick={() => this.makeGrave()}
         /> */}
-        <a-camera fly look-controls wasd-controls="fly: false; enable: true;">
+        <a-camera rotation="25 0 0" position="6.758406523307709 1.6 16.62338290682799" fly look-controls wasd-controls="fly: false; enable: true;">
           <a-entity
             raycaster="showLine: true; objects: collides"
             position="0 -0.9 0"
