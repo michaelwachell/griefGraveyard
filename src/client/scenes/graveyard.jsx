@@ -139,21 +139,7 @@ export default class Graveyard extends React.Component {
                 
 
 <a-entity text="value: Hello World;"></a-entity>
-        {/* <Entity
-          geometry={{ primitive: "sphere" }}
-          radius="100"
-          position="10 10 10"
-          material={{ color: "red" }}
-          class="shape"
-        />
-        <Entity
-          geometry={{ primitive: "sphere" }}
-          position="0 4 -5"
-          collider-check
-          radius="100"
-          material={{ color: "yellow" }}
-          class="shape"
-        /> */}
+
         <a-plane
           position="0 0 -4"
           rotation="-90 0 0"
@@ -163,13 +149,7 @@ export default class Graveyard extends React.Component {
           opacity="0"
           scale="2 2 2"
         />
-        {/* <a-box
-          position="0 2 -10"
-          width="5"
-          height="7"
-          color="black"
-          onClick={() => this.makeGrave()}
-        /> */}
+      
         <a-camera rotation="25 0 0" position="6.758406523307709 1.6 16.62338290682799" fly look-controls wasd-controls="fly: false; enable: true;">
           <a-entity
             raycaster="showLine: true; objects: collides"

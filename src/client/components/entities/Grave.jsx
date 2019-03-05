@@ -6,7 +6,7 @@ export default class Grave extends React.Component {
     super(props);
 
     this.state = {
-      headline: "Goodbye Daisy you were the best dog ever",
+      headline: "Daisey",
       message:
         "We are the Dead. Short days ago We lived, felt dawn, saw sunset glow, Loved and were loved, and now we lie In Flanders fields.",
       width: "1.5",
@@ -14,11 +14,13 @@ export default class Grave extends React.Component {
       owner: "Anonymous",
       position: "5 5 5",
       color: "black",
-      textColor: "red",
+      textColor: "yellow",
+      titleTextColor: "#87ceeb",
       x: "4",
       y: "2",
       z: "4",
-      klass: "grave"
+      klass: "grave",
+      raiseTime: 1000
     };
   }
 
@@ -38,7 +40,7 @@ export default class Grave extends React.Component {
         >
           <a-animation
             attribute="position"
-            dur="5000"
+            dur={`${p.raiseTime || s.raiseTime}`}
             from={`${p.x || s.x} ${p.y - 5 || s.y - 5} ${p.z || s.z}`}
             to={`${p.x || s.x} ${p.y || s.y} ${p.z || s.z}`}
           />
@@ -47,12 +49,12 @@ export default class Grave extends React.Component {
 
         <a-entity
           text={`value: ${p.headline ||
-            s.headline}; color:#e1e0e8;width:1.99;letterSpacing:0.41;wrapCount:26.23;side:double;opacity:0.88; tabSize: 4.34; whiteSpace: pre; align: center; alphaTest: -0.01;`}
+            s.headline}; color:${p.titleTextColor || s.titleTextColor};width:6.16;letterSpacing:3.33;wrapCount:26.23;side:double;opacity:0.88;tabSize:4.34;whiteSpace:pre;align:center;alphaTest:-0.01" position="10.83792 3.51 10.51`}
           position={`${p.x || s.x} ${p.y + 3 || s.y} ${p.z + 0.5 || s.z}`}
         >
            <a-animation
             attribute="position"
-            dur="5000"
+            dur={`${p.raiseTime || s.raiseTime}`}
             from={`${p.x || s.x} ${p.y -2 || s.y} ${p.z + 0.5 || s.z}`}
             to={`${p.x || s.x} ${p.y + 3 || s.y} ${p.z + 0.5 || s.z}`}
           />
@@ -60,21 +62,21 @@ export default class Grave extends React.Component {
 
         <a-entity
           text={`value: ${p.message ||
-            s.message};  color: #ff3439; width: 1.76; height: -0.5; lineHeight: 51.26; tabSize: 4.34; whiteSpace: pre; align: center; alphaTest: -0.01; side: double; wrapCount: 17.84; letterSpacing: -0.09`}
-          position={`${p.x || s.x} ${p.y + 1.5 || s.y} ${p.z + 0.5 || s.z}`}
+            s.message};  color: ${p.textColor || s.textColor}; color:white;width:1.6;height:-0.84;lineHeight:51.48;tabSize:4.34;whiteSpace:pre;alphaTest:-0.01;side:double;wrapCount:21.56;letterSpacing:-0.09`}
+          position={`${p.x +.5 || s.x+.5} ${p.y + 1.5 || s.y} ${p.z + 0.5 || s.z}`}
         >
    <a-animation
             attribute="position"
-            dur="5000"
+            dur={`${p.raiseTime || s.raiseTime}`}
             from={`${p.x || s.x} ${p.y -3.5|| s.y} ${p.z + 0.5 || s.z}`}
             to={`${p.x || s.x} ${p.y + 1.5 || s.y} ${p.z + 0.5 || s.z}`}
           />
         </a-entity>
-
-        {/* <a-entity text="width: 2; lineHeight: 50; letterSpacing: 5; color: red; value: Here Lies Greg Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam" position="5 5 5" ></a-entity> */}
-
-        {/* <a-entity text="width: 2; lineHeight: 50; letterSpacing: 5; color: red; value: Here Lies Greg Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam" position={`${p.x || s.x} ${p.y + 3 || s.y } ${p.z +3 || s.z}`} ></a-entity> */}
+}
       </>
     );
   }
 }
+
+{/* <a-entity text="value:Daisey;color:#e1e0e8;width:6.16;letterSpacing:3.33;wrapCount:26.23;side:double;opacity:0.88;tabSize:4.34;whiteSpace:pre;align:center;alphaTest:-0.01" position="10.83792 3.51 10.51"><a-animation attribute="position" dur="5000" from="11 -2 10.5" to="11 3 10.5"></a-animation></a-entity> */}
+{/* <a-entity text="value:We are the Dead. Short days ago We lived, felt dawn, saw sunset glow, Loved and were loved, and now we lie In Flanders fields.;color:white;width:1.6;height:-0.84;lineHeight:51.48;tabSize:4.34;whiteSpace:pre;alphaTest:-0.01;side:double;wrapCount:21.56;letterSpacing:-0.09" position="10.91336 1.72987 10.5"><a-animation attribute="position" dur="5000" from="11 -3.5 10.5" to="11 1.5 10.5"></a-animation></a-entity> */}

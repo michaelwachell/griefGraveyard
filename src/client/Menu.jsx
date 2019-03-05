@@ -19,7 +19,14 @@ constructor(props) {
         stars: [],
         camX: 0,
         camY: 0,
-        camZ: 0
+        camZ: 0,
+        css: {
+            backgroundColor: "#838383",
+            color: "white",
+            width: "100vw",
+            height: "100vw",
+            
+        }
 
     }
 }
@@ -29,12 +36,14 @@ constructor(props) {
         
      
                 <>
+                <div style={this.state.css}>
                 <Space/>
             <div>
-            <Link to="/space"> Space Floater </Link>
+            <Link to="/space"> _test </Link>
             </div>
             <div>
-            <Link to="/graveyard">Grief Leaver</Link>
+            <Link to="/graveyard">Grief Graveyard</Link>
+            </div>
             </div>
 
                     </>
