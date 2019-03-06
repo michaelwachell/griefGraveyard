@@ -56,7 +56,8 @@ export default class Graveyard extends React.Component {
         klass: "grave",
         titleTextColor: randomColor(),
         headline: textPair[0],
-        message: textPair[1]
+        message: textPair[1],
+        image: textPair[2]
 
       };
       // setAttributes(grave, attribs);
@@ -134,6 +135,10 @@ export default class Graveyard extends React.Component {
       <a-assets>
         <img id="sky" rotation="0 -180 0" src={sky}/>
         <img id="earth" src={CrackedEarth}/>
+        {this.state.graves.map((g, i)=> {
+          const {image} = g;
+          return (<img id={`i`} src={image}/>)
+        })}
         <a-mixin id="light"
                  geometry="primitive: sphere; radius: .5"
                  material="color: #2F0909; emissive: #2F090s "
@@ -147,9 +152,9 @@ export default class Graveyard extends React.Component {
 
 
       {this.state.graves.map((g, i)=> {
-         const {width, height,position, x, y ,z,color, klass, titleTextColor, headline, message } = g;
-         console.log (width, height,position, x, y ,z,color, klass, 'GGGGGGG')
-        return (<Grave width={width} height={height} position={position} x={x} y={y} z={z} color={color} klass={klass} key={i} titleTextColor={titleTextColor} headline={headline} message={message} />)
+         const {width, height,position, x, y ,z,color, klass, titleTextColor, headline, message, image } = g;
+         console.log (width, height,position, x, y ,z,color, klass, image, 'GGGGGGG')
+        return (<Grave width={width} height={height} position={position} x={x} y={y} z={z} color={color} klass={klass} key={i} titleTextColor={titleTextColor} headline={headline} message={message} index={i} image={image} />)
       })}
                 
 

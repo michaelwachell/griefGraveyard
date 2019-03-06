@@ -20,7 +20,7 @@ export default class Grave extends React.Component {
       y: "2",
       z: "4",
       klass: "grave",
-      raiseTime: 3500
+      raiseTime: 4000
     };
   }
 
@@ -52,6 +52,11 @@ export default class Grave extends React.Component {
             s.headline}; color:${p.titleTextColor || s.titleTextColor};width:5.5;letterSpacing:3.33;wrapCount:26.23;side:double;opacity:0.88;tabSize:4.34;whiteSpace:pre;align:center;alphaTest:-0.01" position="10.83792 3.51 10.51`}
           position={`${p.x || s.x} ${p.y + 3 || s.y} ${p.z + 0.5 || s.z}`}
         >
+
+
+{/* <a-image src="https://i.imgur.com/qsRbF.png" material="opacity:0.71" width=".8" geometry="width:1.71;height:0" height=".45" position="0.048 1.6951 1.02238"><a-animation attribute="position" dur="4000" from="-10 -2 10" to="-10 1 10"></a-animation></a-image> */}
+       
+
            <a-animation
             attribute="position"
             dur={`${p.raiseTime || s.raiseTime}`}
@@ -72,6 +77,15 @@ export default class Grave extends React.Component {
             to={`${p.x || s.x} ${p.y + 1.5 || s.y} ${p.z + 0.5 || s.z}`}
           />
         </a-entity>
+
+       { p.image && <a-image src={p.image} width="1.6" height=".8" opacity=".8" position={`${p.x || s.x} ${p.y || s.y} ${p.z || s.z}`}>
+        <a-animation
+            attribute="position"
+            dur={`${p.raiseTime || s.raiseTime}`}
+            from={`${p.x || s.x} ${p.y -2 || s.y} ${p.z || s.z}`}
+            to={`${p.x || s.x} ${p.y + 5 || s.y} ${p.z  || s.z}`}
+          />
+        </a-image>}
 }
       </>
     );
