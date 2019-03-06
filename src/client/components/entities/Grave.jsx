@@ -85,6 +85,12 @@ export default class Grave extends React.Component {
             from={`${p.x || s.x} ${p.y -2 || s.y} ${p.z || s.z}`}
             to={`${p.x || s.x} ${p.y + 5 || s.y} ${p.z  || s.z}`}
           />
+                <a-animation
+            attribute="opacity"
+            dur="12000"
+            from="0"
+            to=".9"
+          />
         </a-image>}
 }
       </>
