@@ -6,9 +6,9 @@ export default class Grave extends React.Component {
     super(props);
 
     this.state = {
-      headline: "Daisey",
+      headline: "My Dad",
       message:
-        "We are the Dead. Short days ago We lived, felt dawn, saw sunset glow, Loved and were loved, and now we lie In Flanders fields.",
+        "We arde the Dead. Short days ago We lived, felt dawn, saw sunset glow, Loved and were loved, and now we lie In Flanders fields.",
       width: "1.5",
       height: "4",
       owner: "Anonymous",
@@ -20,7 +20,7 @@ export default class Grave extends React.Component {
       y: "2",
       z: "4",
       klass: "grave",
-      raiseTime: 1000
+      raiseTime: 3500
     };
   }
 
@@ -47,9 +47,9 @@ export default class Grave extends React.Component {
           
         </a-box>
 
-        <a-entity
+        <a-entity class="show-me"
           text={`value: ${p.headline ||
-            s.headline}; color:${p.titleTextColor || s.titleTextColor};width:6.16;letterSpacing:3.33;wrapCount:26.23;side:double;opacity:0.88;tabSize:4.34;whiteSpace:pre;align:center;alphaTest:-0.01" position="10.83792 3.51 10.51`}
+            s.headline}; color:${p.titleTextColor || s.titleTextColor};width:5.5;letterSpacing:3.33;wrapCount:26.23;side:double;opacity:0.88;tabSize:4.34;whiteSpace:pre;align:center;alphaTest:-0.01" position="10.83792 3.51 10.51`}
           position={`${p.x || s.x} ${p.y + 3 || s.y} ${p.z + 0.5 || s.z}`}
         >
            <a-animation
@@ -60,7 +60,7 @@ export default class Grave extends React.Component {
           />
         </a-entity>
 
-        <a-entity
+        <a-entity class="show-me"
           text={`value: ${p.message ||
             s.message};  color: ${p.textColor || s.textColor}; color:white;width:1.6;height:-0.84;lineHeight:51.48;tabSize:4.34;whiteSpace:pre;alphaTest:-0.01;side:double;wrapCount:21.56;letterSpacing:-0.09`}
           position={`${p.x +.5 || s.x+.5} ${p.y + 1.5 || s.y} ${p.z + 0.5 || s.z}`}

@@ -2,16 +2,11 @@ import 'aframe';
 import Attr from '../utilities/attributes';
 const { setAttributes } = Attr;
 
-AFRAME.registerComponent('make-grave', {
+AFRAME.registerComponent('show-me', {
 
   init: () => {
     this.el.addEventListener('click', (e) => {
-      console.log('you clicked', e);
-      const grave = document.createElement('a-entity');
-      
-
-
-
+      console.log('you clicked', e);    
     })
   },
 

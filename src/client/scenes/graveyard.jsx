@@ -11,6 +11,10 @@ const { setAttributes } = Attr;
 import Grave from '../components/entities/Grave';
 import sky from '../../../dist/assets/skys/slake.jpg';
 import CrackedEarth from '../../../dist/assets/skys/cracked_earth.jpg';
+import Colors from '../stub/colors';
+const {randomColor} = Colors;
+import Text from '../stub/text';
+const {randomPair} = Text;
 
 export default class Graveyard extends React.Component {
   constructor(props) {
@@ -39,6 +43,8 @@ export default class Graveyard extends React.Component {
 
       !this.state.graves.length ? this.initGrave() : null;
 
+      const textPair = randomPair()
+
       const attribs = {
         width: 2,
         height: 4,
@@ -47,7 +53,11 @@ export default class Graveyard extends React.Component {
         y: this.state.nextY,
         z: this.state.nextZ,
         color: "black",
-        klass: "grave"
+        klass: "grave",
+        titleTextColor: randomColor(),
+        headline: textPair[0],
+        message: textPair[1]
+
       };
       // setAttributes(grave, attribs);
       // scene.appendChild(grave);
@@ -63,6 +73,11 @@ export default class Graveyard extends React.Component {
         return { isFull: true };
       });
     }
+  }
+
+
+  randomText() {
+
   }
 
   initGrave() {
@@ -132,9 +147,9 @@ export default class Graveyard extends React.Component {
 
 
       {this.state.graves.map((g, i)=> {
-         const {width, height,position, x, y ,z,color, klass } = g;
+         const {width, height,position, x, y ,z,color, klass, titleTextColor, headline, message } = g;
          console.log (width, height,position, x, y ,z,color, klass, 'GGGGGGG')
-        return (<Grave width={width} height={height} position={position} x={x} y={y} z={z} color={color} klass={klass} key={i} />)
+        return (<Grave width={width} height={height} position={position} x={x} y={y} z={z} color={color} klass={klass} key={i} titleTextColor={titleTextColor} headline={headline} message={message} />)
       })}
                 
 
